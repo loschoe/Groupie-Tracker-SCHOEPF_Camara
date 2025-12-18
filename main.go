@@ -18,6 +18,10 @@ type Artist struct {
 	Image        	string   	`json:"image"`
 }
 
+func (a Artist) NbMembers() int {
+    return len(a.Members)
+}
+
 type PageData struct {
 	Query 			string
 	Searched 		bool

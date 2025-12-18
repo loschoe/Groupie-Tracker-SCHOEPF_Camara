@@ -57,7 +57,8 @@
                     <div class="card">
                         <img src="{{ .Image }}" alt="Image de {{ .Name }}" class="card-image">
                         <h2>{{ .Name }}</h2>
-                        <p class="creation-date">Création : {{ .CreationDate }}</p>
+                        <p class="description">Création : {{ .CreationDate }}</p>
+                        <p class="description">Nombre de membres : {{.NbMembers}}</p>
                         <a href="/artist/{{ .ID }}" class="more-info-btn">Plus d'infos</a>
                     </div>
                 {{ end }}
