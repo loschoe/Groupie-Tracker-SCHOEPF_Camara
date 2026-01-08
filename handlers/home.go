@@ -47,7 +47,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
     data := PageData{Artists: allArtists}
 
-    // --- Recherche POST ---
+
     if r.Method == http.MethodPost {
         query := strings.TrimSpace(r.FormValue("group"))
         if query != "" {
@@ -62,7 +62,6 @@ func Home(w http.ResponseWriter, r *http.Request) {
         }
     }
 
-    // --- Filtres GET (toujours appliqués) ---
     alpha := r.URL.Query().Get("alpha")
     periode := r.URL.Query().Get("periode")
     membres := r.URL.Query().Get("members")
@@ -104,7 +103,7 @@ func correspondPeriode(creation int, periode string) bool {
 func applyFilters(artists []models.Artist, alpha, periode, membresStr string) []models.Artist {
     var results []models.Artist
     
-    // Convertir membres en int si fourni
+    // Convertir membres en int
     var membres int
     if membresStr != "" {
         fmt.Sscanf(membresStr, "%d", &membres)
