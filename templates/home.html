@@ -8,77 +8,132 @@
     <title>Accueil | Music Tracker</title>
 </head>
 <body>
-    <div class="parent">
 
-        <div class="div1">
-            <header class="header">
-                <h1 class="big-title">Music Tracker 2025</h1>
-                <img src="/static/images/logoo.png" alt="logo du site" class="logo">
-            </header>
-        </div>
+<div class="parent">
 
-        <div class="div2">
-            <nav class="side-menu">
-                <ul>
-                    <li><a href="/"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
-                    <li><a href="/about"><i class="fas fa-info-circle"></i> <span>À propos</span></a></li>
-                    <a href="#" id="theme-toggle"><i id="theme-icon" class="fas fa-sun"></i><span>Apparence</span></a>
-                    <script src="/static/js/theme.js" defer></script>
-                </ul>
-            </nav>
-        </div>
+    <!-- ================= HEADER ================= -->
+    <div class="div1">
+        <header class="header">
+            <h1 class="big-title">Music Tracker 2025</h1>
+            <img src="/static/images/logoo.png" alt="logo du site" class="logo">
+        </header>
+    </div>
 
-        <div class="div3">
-            <div class="search-container">
-                <div class="search-box">
+    <!-- ================= NAV ================= -->
+    <div class="div2">
+        <nav class="side-menu">
+            <ul>
+                <li>
+                    <a href="/"><i class="fas fa-home"></i> <span>Accueil</span></a>
+                </li>
+                <li>
+                    <a href="/about"><i class="fas fa-info-circle"></i> <span>À propos</span></a>
+                </li>
+                <li>
+                    <a href="#" id="theme-toggle">
+                        <i id="theme-icon" class="fas fa-sun"></i>
+                        <span>Apparence</span>
+                    </a>
+                </li>
+            </ul>
+            <script src="/static/js/theme.js" defer></script>
+        </nav>
+    </div>
 
-                    <div class="search-icon">
-                        <svg viewBox="0 0 20 20" aria-hidden="true">
-                            <path d="M16.72 17.78a.75.75 0 1 0 1.06-1.06l-1.06 1.06ZM9 14.5A5.5 5.5 0 0 1 3.5 9H2a7 7 0 0 0 7 7v-1.5ZM3.5 9A5.5 5.5 0 0 1 9 3.5V2a7 7 0 0 0-7 7h1.5ZM9 3.5A5.5 5.5 0 0 1 14.5 9H16a7 7 0 0 0-7-7v1.5Zm3.89 10.45 3.83 3.83 1.06-1.06-3.83-3.83-1.06 1.06ZM14.5 9a5.48 5.48 0 0 1-1.61 3.89l1.06 1.06A6.98 6.98 0 0 0 16 9h-1.5Zm-1.61 3.89A5.48 5.48 0 0 1 9 14.5V16a6.98 6.98 0 0 0 4.95-2.05l-1.06-1.06Z"></path>
-                        </svg>
-                    </div>
+    <!-- ================= CONTENT ================= -->
+    <div class="div3">
 
-                    <form action="/" method="POST">
-                        <input
-                            class="search-input"
-                            type="text"
-                            name="group"
-                            placeholder="Votre groupe..."
-                            value="{{.Query}}"
-                            
-                        >
-                        <button class="search-btn" type="submit">Rechercher</button>
-                    </form>
-                </div> 
+        <!-- ===== Recherche + Filtres ===== -->
+        <div class="search-container">
+
+            <!-- Recherche -->
+            <div class="search-box">
+                <div class="search-icon">
+                    <svg viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M16.72 17.78a.75.75 0 1 0 1.06-1.06l-1.06 1.06ZM9 14.5A5.5 5.5 0 0 1 3.5 9H2a7 7 0 0 0 7 7v-1.5ZM3.5 9A5.5 5.5 0 0 1 9 3.5V2a7 7 0 0 0-7 7h1.5ZM9 3.5A5.5 5.5 0 0 1 14.5 9H16a7 7 0 0 0-7-7v1.5Zm3.89 10.45 3.83 3.83 1.06-1.06-3.83-3.83-1.06 1.06ZM14.5 9a5.48 5.48 0 0 1-1.61 3.89l1.06 1.06A6.98 6.98 0 0 0 16 9h-1.5Zm-1.61 3.89A5.48 5.48 0 0 1 9 14.5V16a6.98 6.98 0 0 0 4.95-2.05l-1.06-1.06Z"></path>
+                    </svg>
+                </div>
+
+                <form action="/" method="POST">
+                    <input
+                        class="search-input"
+                        type="text"
+                        name="group"
+                        placeholder="Votre groupe..."
+                        value="{{.Query}}"
+                    >
+                    <button class="search-btn" type="submit">Rechercher</button>
+                </form>
             </div>
 
-            {{ if .NoResult }}
-            <div class="no-result">
-                <p class="error"><i class="fa-solid fa-magnifying-glass"></i> Aucun artiste trouvé</p>
+            <!-- Filtres -->
+            <div class="filter-section">
+                <fieldset>
+                    <form method="GET" action="/">
+                        <div class="filtre">
+                        
+                            <input type="checkbox" id="alpha" name="alpha" value="1"
+                                {{if .AlphaOrder}}checked{{end}}>
+                            <label for="alpha">A ↓ Z</label>
+                        
+                            <select name="periode">
+                                <option value="">Choisir une période</option>
+                                <option value="all" {{if eq .PeriodeSelect "all"}}selected{{end}}>Toutes</option>
+                                <option value="1950-1970" {{if eq .PeriodeSelect "1950-1970"}}selected{{end}}>1950 - 1970</option>
+                                <option value="1970-1990" {{if eq .PeriodeSelect "1970-1990"}}selected{{end}}>1970 - 1990</option>
+                                <option value="1990-2000" {{if eq .PeriodeSelect "1990-2000"}}selected{{end}}>1990 - 2000</option>
+                                <option value="2000+" {{if eq .PeriodeSelect "2000+"}}selected{{end}}>2000+</option>
+                            </select>
+                        
+                            <input type="number" name="members" min="1" max="8" step="1" 
+                                placeholder="Nb de membres" value="{{.MembresValue}}"/>
+                            <button type="submit" class="search-btn">Filtrer</button>    
+                        </div>
+                    </form>
+                </fieldset>
+            </div>
+        </div>
+
+        {{ if .NoResult }}
+        <div class="no-result">
+            <p class="error">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Aucun artiste trouvé
+            </p>
+        </div>
+        {{ end }}
+
+        <!-- ===== Grille artistes ===== -->
+        <div class="grid-container">
+            {{ range .Artists }}
+            <div class="card">
+                <img src="{{ .Image }}" alt="Image de {{ .Name }}" class="card-image">
+                <h2>{{ .Name }}</h2>
+                <p class="description">Création : {{ .CreationDate }}</p>
+                <p class="description">Nombre de membres : {{ .NbMembers }}</p>
+                <a href="/artist/{{ .ID }}" class="more-info-btn">Plus d'infos</a>
             </div>
             {{ end }}
-
-            <div class="grid-container">
-                {{ range .Artists }}
-                    <div class="card">
-                        <img src="{{ .Image }}" alt="Image de {{ .Name }}" class="card-image">
-                        <h2>{{ .Name }}</h2>
-                        <p class="description">Création : {{ .CreationDate }}</p>
-                        <p class="description">Nombre de membres : {{.NbMembers}}</p>
-                        <a href="/artist/{{ .ID }}" class="more-info-btn">Plus d'infos</a>
-                    </div>
-                {{ end }}
-            </div>
         </div>
 
-        <div class="div4">
-            <footer>
-                <a href="https://github.com/loschoe/Groupie-Tracker-SCHOEPF_Camara"><i class="fab fa-github"><span> Notre Repository</span></i></a>
-                <p>© Music Tracker 2025 — Projet Ynov</p>
-                <a href="#"><i class="fas fa-info-circle"></i> <span>À propos</span></a></li>
-            </footer>
-        </div>
     </div>
+
+    <!-- ================= FOOTER ================= -->
+    <div class="div4">
+        <footer>
+            <a href="https://github.com/loschoe/Groupie-Tracker-SCHOEPF_Camara">
+                <i class="fab fa-github"></i>
+                <span> Notre Repository</span>
+            </a>
+            <p>© Music Tracker 2025 — Projet Ynov</p>
+            <a href="/about">
+                <i class="fas fa-info-circle"></i>
+                <span>À propos</span>
+            </a>
+        </footer>
+    </div>
+
+</div>
 
 </body>
 </html>
