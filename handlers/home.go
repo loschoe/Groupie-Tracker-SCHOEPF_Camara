@@ -3,7 +3,6 @@ package handlers
 import (
 	"fmt"
     "html/template"
-    "log"
     "net/http"
     "path/filepath"
     "sort"
@@ -40,43 +39,35 @@ func filterArtists(artists []models.Artist, query string) []models.Artist {
 func Home(w http.ResponseWriter, r *http.Request) {
     allArtists, err := services.GetArtists()
     if err != nil {
-        log.Println("❌ Erreur lors du chargement des artistes")
         http.Error(w, "Erreur serveur", http.StatusInternalServerError)
         return
     }
 
-    data := PageData{Artists: allArtists}
-
-
-    if r.Method == http.MethodPost {
-        query := strings.TrimSpace(r.FormValue("group"))
-        if query != "" {
-            data.Query = query
-            data.Searched = true
-            data.Artists = filterArtists(allArtists, query)
-
-            if len(data.Artists) == 0 {
-                data.NoResult = true
-                log.Println("⚠️ Aucun résultat trouvé pour:", query)
-            }
-        }
-    }
-
+    // --- GET : recherche + filtres ---
+    query := r.URL.Query().Get("group")
     alpha := r.URL.Query().Get("alpha")
     periode := r.URL.Query().Get("periode")
     membres := r.URL.Query().Get("members")
 
-    data.AlphaOrder = (alpha == "1")
-    data.PeriodeSelect = periode
-    data.MembresValue = membres
+    filtered := allArtists
 
+    // Recherche
+    if query != "" {
+        filtered = filterArtists(filtered, query)
+    }
+
+    // Filtres
     if alpha != "" || periode != "" || membres != "" {
-        data.Artists = applyFilters(data.Artists, alpha, periode, membres)
+        filtered = applyFilters(filtered, alpha, periode, membres)
+    }
 
-        if len(data.Artists) == 0 {
-            data.NoResult = true
-            log.Println("⚠️ Aucun artiste ne correspond aux filtres")
-        }
+    data := PageData{
+        Query:         query,
+        Artists:       filtered,
+        NoResult:      len(filtered) == 0,
+        AlphaOrder:    alpha == "1",
+        PeriodeSelect: periode,
+        MembresValue:  membres,
     }
 
     tmpl := template.Must(template.ParseFiles(filepath.Join("templates", "home.html")))

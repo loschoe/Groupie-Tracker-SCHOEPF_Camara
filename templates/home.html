@@ -23,7 +23,7 @@
     <div class="div2">
         <nav class="side-menu">
             <ul>
-                <li><a href="/"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
+                <li><a href="/accueil"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
                 <li><a href="/accueil"><i class="fas fa-music"></i> <span>Artiste</span></a></li>
                 <li><a href="/about"><i class="fas fa-info-circle"></i> <span>À propos</span></a></li>
                 <li><a href="#" id="theme-toggle"><i id="theme-icon" class="fas fa-sun"></i><span>Apparence</span></a></li>
@@ -41,7 +41,7 @@
                     </svg>
                 </div>
 
-                <form action="/" method="POST">
+                <form action="/accueil" method="GET">
                     <input
                         class="search-input"
                         type="text"
@@ -49,18 +49,25 @@
                         placeholder="Votre groupe..."
                         value="{{.Query}}"
                     >
+                    <!-- Préserver les filtres existants lors de la recherche -->
+                    {{if .AlphaOrder}}<input type="hidden" name="alpha" value="1">{{end}}
+                    {{if .PeriodeSelect}}<input type="hidden" name="periode" value="{{.PeriodeSelect}}">{{end}}
+                    {{if .MembresValue}}<input type="hidden" name="members" value="{{.MembresValue}}">{{end}}
                     <button class="search-btn" type="submit">Rechercher</button>
                 </form>
             </div>
 
             <div class="filter-section">
                 <fieldset>
-                    <form method="GET" action="/">
+                    <form method="GET" action="/accueil">
                         <div class="filtre">
+                        
+                            <!-- Préserver la recherche lors du filtrage -->
+                            {{if .Query}}<input type="hidden" name="group" value="{{.Query}}">{{end}}
                         
                             <input type="checkbox" id="alpha" name="alpha" value="1"
                                 {{if .AlphaOrder}}checked{{end}}>
-                            <label for="alpha">A ↓ Z</label>
+                            <label for="alpha">A → Z</label>
                         
                             <select name="periode">
                                 <option value="">Choisir une période</option>
@@ -109,7 +116,7 @@
                 <i class="fab fa-github"></i>
                 <span> Notre Repository</span>
             </a>
-            <p>© Music Tracker 2025 — Projet Ynov</p>
+            <p>© Music Tracker 2025 – Projet Ynov</p>
             <a href="/about">
                 <i class="fas fa-info-circle"></i>
                 <span>À propos</span>
