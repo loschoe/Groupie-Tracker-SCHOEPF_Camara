@@ -9,6 +9,7 @@ body {
   background: radial-gradient(circle at top, #0b1a3a, #050914);
   color: #ffffff;
   min-height: 100vh;
+  min-width: 768px; /* Largeur minimale pour éviter un responsive trop petit */
   display: flex;
   flex-direction: column;
 }

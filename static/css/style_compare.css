@@ -72,7 +72,7 @@
 }
 
 .text-descript {
-    color: var(--text-decript);
+    color: var(--text-compare); 
 }
 
 .label {
@@ -88,7 +88,7 @@
 
 .concerts p {
     margin: 5px 0;
-    color: var(--text-decript);
+    color: var(--text-compare);
 }
 
 .concerts strong {

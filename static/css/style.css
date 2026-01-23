@@ -18,6 +18,7 @@
   --text-main: #eaeaea;
   --text-muted: #bfc9d9;
   --text-decript: #777;
+  --text-compare: #5bc0eb;
   --shadow-soft: rgba(0, 0, 0, 0.4);
   --nav-width-compact: 70px;
   --nav-width-expanded: 250px;
@@ -38,6 +39,7 @@
   --text-main: #060c18;
   --text-muted: #27282a;
   --text-decript: #464748;
+  --text-compare:#464748;
   --shadow-soft: rgba(15, 23, 42, 0.08);
   --compare-search-bg: #D3D3D3;
   --compare-column-bg: #D3D3D3;
@@ -60,6 +62,7 @@ body {
   background: var(--bg-gradient);
   color: var(--text-main);
   min-height: 100vh;
+  min-width: 768px; /* Largeur minimale pour éviter un responsive trop petit */
 }
 
 /* ================= GRID LAYOUT  ================= */
