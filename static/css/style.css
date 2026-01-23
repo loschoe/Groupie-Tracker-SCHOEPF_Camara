@@ -19,9 +19,11 @@
   --text-muted: #bfc9d9;
   --text-decript: #777;
   --shadow-soft: rgba(0, 0, 0, 0.4);
-  /* Variables pour la navigation */
   --nav-width-compact: 70px;
   --nav-width-expanded: 250px;
+  --compare-search-bg: #1e293b;
+  --compare-column-bg: #1e293b;
+  --compare-result-bg: #334155;
 }
 
 [data-theme="light"] {
@@ -37,7 +39,9 @@
   --text-muted: #27282a;
   --text-decript: #464748;
   --shadow-soft: rgba(15, 23, 42, 0.08);
-  /* Variables pour la navigation */
+  --compare-search-bg: #D3D3D3;
+  --compare-column-bg: #D3D3D3;
+  --compare-result-bg: #e2e8f0;
   --nav-width-compact: 70px;
   --nav-width-expanded: 250px;
 }

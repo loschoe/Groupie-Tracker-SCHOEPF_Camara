@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>A propos | Music Tracker</title>
 </head>
-<body>   <!-- Nous reprenons le thème principal de la page d'accueil !! -->
+<body>   
     <div class="parent">
 
         <div class="div1">
@@ -19,13 +19,20 @@
         </div>
 
         <div class="div2">
-            <nav class="side-menu">
-                <ul>
-                    <li><a href="/"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
-                    <li><a href="/about"><i class="fas fa-info-circle"></i> <span>À propos</span></a></li>
-                    <li><a href="#"><i class="fas fa-sun"></i> <span>Apparence</span></a></li>
-                </ul>
-            </nav>
+        <nav class="side-menu">
+            <ul>
+                <li><a href="/accueil"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
+                <li><a href="/accueil"><i class="fas fa-music"></i> <span>Artiste</span></a></li>
+                <li><a href="/about"><i class="fas fa-info-circle"></i> <span>À propos</span></a></li>
+                <li><a href="#" id="theme-toggle"><i id="theme-icon" class="fas fa-sun"></i><span>Apparence</span></a></li>
+
+                <!-- TO DO-->
+                <li><a href="#"><i class="fa-solid fa-heart"></i> <span>Favoris</span></a></li>
+                <li><a href="/compare"><i class="fa-solid fa-right-left"></i> <span>Comparaison</span></a></li>
+                
+            </ul>
+            <script src="/static/js/theme.js" defer></script>
+        </nav>
         </div>
 
         <div class="div3">

@@ -1,0 +1,107 @@
+.compare-container {
+    padding: 20px;
+}
+
+.search-section {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 30px;
+    background: var(--compare-search-bg);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.search-group {
+    flex: 1;
+}
+
+.search-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.search-group input {
+    width: 100%;
+}
+
+.search-submit {
+    padding-bottom: 2px;
+}
+
+.results-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.compare-column {
+    width: 48%;
+    background: var(--compare-column-bg);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.compare-column h3 {
+    color: var(--text-title);
+    margin-bottom: 15px;
+}
+
+.result-block {
+    padding: 20px;
+    background: var(--compare-result-bg);
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+.info-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.illustration {
+    width: 180px;
+    border-radius: 10px;
+}
+
+.Name {
+    color: var(--text-title);
+}
+
+.text-descript {
+    color: var(--text-decript);
+}
+
+.label {
+    color: var(--text-main);
+    font-weight: bold;
+}
+
+.litle-title {
+    color: var(--text-title);
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.concerts p {
+    margin: 5px 0;
+    color: var(--text-decript);
+}
+
+.concerts strong {
+    color: var(--text-location);
+}
+
+.no-result {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.error {
+    color: #ff6b6b;
+    font-size: 1.1em;
+}

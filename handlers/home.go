@@ -12,7 +12,6 @@ import (
 	"groupie-tracker/services"
 )
 
-// Structure des données envoyées à la page HTML
 type PageData struct {
 	Query         string
 	Searched      bool
@@ -23,7 +22,6 @@ type PageData struct {
 	MembresValue  string
 }
 
-// Fonction utilitaire pour filtrer (nom + date)
 func filterArtists(artists []models.Artist, query string) []models.Artist {
 	query = strings.ToLower(query)
 	var results []models.Artist
@@ -39,7 +37,6 @@ func filterArtists(artists []models.Artist, query string) []models.Artist {
 	return results
 }
 
-// Handler principal pour la page d'accueil
 func Home(w http.ResponseWriter, r *http.Request) {
 	allArtists, err := services.GetArtists()
 	if err != nil {
@@ -47,7 +44,6 @@ func Home(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Récupération des paramètres GET
 	query := r.URL.Query().Get("group")
 	alpha := r.URL.Query().Get("alpha")
 	periode := r.URL.Query().Get("periode")
@@ -55,17 +51,14 @@ func Home(w http.ResponseWriter, r *http.Request) {
 
 	filtered := allArtists
 
-	// Recherche libre
 	if query != "" {
 		filtered = filterArtists(filtered, query)
 	}
 
-	// Application des filtres
 	if alpha != "" || periode != "" || membres != "" {
 		filtered = applyFilters(filtered, alpha, periode, membres)
 	}
 
-	// Préparation des données envoyées au template
 	data := PageData{
 		Query:         query,
 		Artists:       filtered,
@@ -79,7 +72,6 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	tmpl.Execute(w, data)
 }
 
-// Vérifie si la période correspond
 func correspondPeriode(creation int, periode string) bool {
 	switch periode {
 	case "1950-1970":
@@ -95,7 +87,6 @@ func correspondPeriode(creation int, periode string) bool {
 	}
 }
 
-// Applique les filtres (alpha, période, membres)
 func applyFilters(artists []models.Artist, alpha, periode, membresStr string) []models.Artist {
 	var results []models.Artist
 
@@ -106,14 +97,12 @@ func applyFilters(artists []models.Artist, alpha, periode, membresStr string) []
 
 	for _, artist := range artists {
 
-		// Filtre période
 		if periode != "" && periode != "all" {
 			if !correspondPeriode(artist.CreationDate, periode) {
 				continue
 			}
 		}
 
-		// Filtre nombre de membres
 		if membres > 0 {
 			if len(artist.Members) != membres {
 				continue
@@ -123,7 +112,6 @@ func applyFilters(artists []models.Artist, alpha, periode, membresStr string) []
 		results = append(results, artist)
 	}
 
-	// Tri alphabétique
 	if alpha == "1" {
 		sort.Slice(results, func(i, j int) bool {
 			return results[i].Name < results[j].Name

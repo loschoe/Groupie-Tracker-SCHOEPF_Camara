@@ -12,7 +12,7 @@ func main() {
 
 	http.HandleFunc("/", handlers.Start)
 	http.HandleFunc("/accueil", handlers.Home)
-	//http.HandleFunc("/search", handlers.Search)
+	http.HandleFunc("/compare", handlers.Compare)
 	http.HandleFunc("/about", handlers.About)
 	http.HandleFunc("/artist/", handlers.Artist)
 
