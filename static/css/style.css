@@ -271,7 +271,6 @@ body {
   flex-wrap: nowrap;
 }
 
-/* Checkbox Alphabétique */
 .filtre input[type="checkbox"] {
   appearance: none;
   width: 20px;
@@ -320,7 +319,6 @@ body {
   color: var(--blue-accent);
 }
 
-/* Select Période */
 .filtre select {
   background: rgba(255, 255, 255, 0.9);
   color: #5E5E5E;
@@ -382,7 +380,6 @@ body {
   box-shadow: 0 0 15px rgba(91, 192, 235, 0.4);
 }
 
-/* Suppression des flèches du input number pour un look plus clean */
 .filtre input[type="number"]::-webkit-inner-spin-button,
 .filtre input[type="number"]::-webkit-outer-spin-button {
   opacity: 0.5;

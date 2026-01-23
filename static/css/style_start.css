@@ -9,12 +9,11 @@ body {
   background: radial-gradient(circle at top, #0b1a3a, #050914);
   color: #ffffff;
   min-height: 100vh;
-  min-width: 768px; /* Largeur minimale pour éviter un responsive trop petit */
+  min-width: 768px;
   display: flex;
   flex-direction: column;
 }
 
-/* Header */
 .header {
   text-align: center;
   padding: 40px 0;
@@ -30,8 +29,6 @@ body {
   color: #4cc9f0;
 }
 
-
-/* Hero */
 .hero {
   flex: 1;
   max-width: 800px;
@@ -52,7 +49,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Bouton */
 .cta {
   display: inline-block;
   margin-top: 30px;
@@ -70,7 +66,6 @@ body {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 20px;
