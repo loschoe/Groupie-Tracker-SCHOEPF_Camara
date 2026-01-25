@@ -15,6 +15,7 @@ func main() {
 	http.HandleFunc("/compare", handlers.Compare)
 	http.HandleFunc("/about", handlers.About)
 	http.HandleFunc("/artist/", handlers.Artist)
+	http.HandleFunc("/favoris", handlers.Favorites)
 
 	log.Println("Démarrage du serveur...")
 	log.Println("✅ Serveur démarré sur http://localhost:8080")

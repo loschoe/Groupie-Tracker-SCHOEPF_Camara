@@ -11,6 +11,8 @@ type Artist struct {
 	Image        string   `json:"image"`
 }
 
+var Artists []Artist
+
 func (a Artist) NbMembers() int {
 	return len(a.Members)
 }
