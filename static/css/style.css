@@ -1,11 +1,9 @@
-/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ================= VARIABLES ================= */
 :root {
   --bg-gradient: linear-gradient(145deg, #0b132b, #020617);
   --bg-main: #0b132b;
@@ -56,7 +54,6 @@
   color: var(--blue-soft);
 }
 
-/* ================= GLOBAL ================= */
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: var(--bg-gradient);
@@ -65,7 +62,6 @@ body {
   min-width: 768px;
 }
 
-/* ================= GRID LAYOUT  ================= */
 .parent {
   display: grid;
   grid-template-columns: var(--nav-width-compact) 1fr;
@@ -92,7 +88,6 @@ body {
   grid-area: 3 / 1 / 4 / 3;
 }
 
-/* ================= HEADER ================= */
 .header {
   display: flex;
   align-items: center;
@@ -123,7 +118,6 @@ body {
   box-shadow: 0 0 18px rgba(91, 192, 235, 0.45);
 }
 
-/* ================= NAV ================= */
 .side-menu {
   width: 100%;
   min-height: 100%;
@@ -161,7 +155,6 @@ body {
   display: none;
 }
 
-/* ================= RECHERCHE & FILTRES ============== */
 .search-container {
   display: flex;
   justify-content: center;
@@ -242,9 +235,6 @@ body {
   align-items: center;
 }
 
-
-
-/* ================= SECTION FILTRES ================= */
 .filter-section {
   display: flex;
   align-items: center;
@@ -397,7 +387,6 @@ body {
   color: Red;
 }
 
-/* ================ Artistes =============== */
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -425,7 +414,6 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* ================= BOUTON FAVORI ================= */
 .favorite-btn {
   position: absolute;
   top: 15px;
@@ -455,7 +443,6 @@ body {
   -webkit-text-stroke: 0;
 }
 
-/* ================= IMAGE & CONTENU CARTE ================= */
 .card-image {
   width: 120px;
   height: 120px;
@@ -495,7 +482,6 @@ body {
   transform: translateY(0);
 }
 
-/* ================= RESPONSIVE ================= */
 @media (max-width: 1200px) {
   .search-container {
     flex-direction: column;
@@ -550,7 +536,6 @@ body {
   }
 }
 
-/* ================= FOOTER ================= */
 footer {
   background: var(--bg-secondary);
   padding: 1.5rem;

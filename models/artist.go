@@ -1,3 +1,4 @@
+// Modèle artiste 
 package models
 
 import "strings"

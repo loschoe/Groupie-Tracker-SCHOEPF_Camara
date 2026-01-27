@@ -1,3 +1,4 @@
+// Fonctions pour la comparaison de deux artistes :
 package handlers
 
 import (

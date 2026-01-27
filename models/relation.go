@@ -1,3 +1,4 @@
+// Modèle relation dates - locations : 
 package models
 
 type Relation struct {

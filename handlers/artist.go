@@ -1,3 +1,4 @@
+// Structures & variables pour créer l'artiste : 
 package handlers
 
 import (

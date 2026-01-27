@@ -1,3 +1,4 @@
+// Fonction pour ajouter un favori : 
 package handlers
 
 import (

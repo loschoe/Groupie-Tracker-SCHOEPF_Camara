@@ -1,3 +1,4 @@
+// Utiliser l'API externe et récupérer les données :
 package services
 
 import (

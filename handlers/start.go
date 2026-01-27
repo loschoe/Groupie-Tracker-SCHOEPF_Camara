@@ -1,3 +1,4 @@
+// Page de démarrage :
 package handlers
 
 import (

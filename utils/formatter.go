@@ -1,3 +1,4 @@
+// Formattage des données pour le modele de relation:
 package utils
 
 import (

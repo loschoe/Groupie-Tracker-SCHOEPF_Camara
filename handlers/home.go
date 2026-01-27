@@ -1,3 +1,4 @@
+// Page d'accueil du siite 
 package handlers
 
 import (
