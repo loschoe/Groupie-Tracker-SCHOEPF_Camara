@@ -120,13 +120,13 @@ Les contributions sont les bienvenues ! Pour contribuer :
 4. **Push** vers la branche (`git push origin feature/AmazingFeature`)
 5. Ouvrez une **Pull Request**
 
-## 👥 Auteurs
+## 👥 Auteur
 
-- **Loschoe** - [GitHub](https://github.com/loschoe)
-- **Timcmr** - [GitHub](https://github.com/timcmr)
+**Loschoe** - [GitHub](https://github.com/loschoe)
 ---
 
 ⭐ **Si vous aimez ce projet, n'oubliez pas de lui donner une étoile !** ⭐
+
 
 
 
